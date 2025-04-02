@@ -4,18 +4,13 @@ import support.cse131.NotYetImplementedException;
 
 public class MultipleChoiceQuestion extends Question {
 
-	/**
-	 * Constructor
-	 * @param prompt
-	 * @param answer
-	 * @param points
-	 * @param choices
-	 */
+	
+	private String[] choices;
+	
 	public MultipleChoiceQuestion(String prompt, String answer, int points, String[] choices) {
-		// Call the super class constructor, then create and set
-		// instance variables for any values that aren't handled
-		// by the base class
-		throw new NotYetImplementedException();
+		super(prompt, answer, points);
+		this.choices = choices;
+		;
 	}
 	
 	/**
@@ -23,7 +18,11 @@ public class MultipleChoiceQuestion extends Question {
 	 * the choices present for the question.
 	 */
 	public void displayPrompt() {
-		throw new NotYetImplementedException();
+		super.displayPrompt();
+		int n = choices.length;
+		for (int i = 1; i <= n; i++) {
+			System.out.println(i + ". " + choices[i-1]);
+		}
 	}
 	
 	/**
@@ -31,11 +30,11 @@ public class MultipleChoiceQuestion extends Question {
 	 * @return String[] of choices
 	 */
 	public String[] getChoices() {
-		throw new NotYetImplementedException();
+		return choices;
 	}
 	
 	public static void main(String[] args) {
-		// TODO: create your own MultipleChoiceQuestion
+		String[] choices = {"1", "2", "3", "4"};
+		MultipleChoiceQuestion myMultipleChoiceQuestion = new MultipleChoiceQuestion("How many sides does a rectangle have?", "4", 10, choices);
 	}
-
 }
